@@ -7,6 +7,14 @@ TOKEN = "8516795655:AAHfSA9wS3pf4GcOAFxD052HCBMZKrtdIBE"
 dp = Dispatcher()
 
 lemons = 0
+balance = 50
+lemons_juice = 0
+sugar = 0
+price_lemons = 15
+price_lemons_juice = 50
+price_sugar = 5
+production_lemons_juice = 5
+
 
 
 
@@ -21,6 +29,14 @@ async def buy_lemon(mes):
     global lemons
     lemons += 1
     await mes.answer('Вы получили лимон. Всего лимонов:' + str(lemons))
+
+
+
+@dp.message(Command("buy_sugar"))
+async def buy_sugar(mes):
+    global sugar
+    sugar += 100
+    await mes.answer('Вы получили 100 грамм сахара. Всего грамм сахара:' + str(sugar))
     
     
 
