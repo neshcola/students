@@ -9,6 +9,7 @@ dp = Dispatcher()
 lemons = 0
 
 
+
 # Command handler
 @dp.message(Command("start"))
 async def command_start_handler(mes):
@@ -32,3 +33,4 @@ async def main() -> None:
 
 asyncio.run(main())
           
+
