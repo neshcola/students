@@ -18,7 +18,7 @@ production_lemonade = 5
 # Command handler
 @dp.message(Command("start"))
 async def command_start_handler(mes):
-    await mes.answer("Здарова")
+    await mes.answer("Здорово")
     
 @dp.message(Command("buy_lemon"))
 async def buy_lemon(mes):
@@ -44,4 +44,5 @@ async def main():
     await dp.start_polling(bot)
 
 asyncio.run(main())          
+
 
