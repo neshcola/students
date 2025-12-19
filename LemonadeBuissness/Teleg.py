@@ -7,7 +7,7 @@ TOKEN = "8516795655:AAHfSA9wS3pf4GcOAFxD052HCBMZKrtdIBE"
 dp = Dispatcher()
 
 lemons = 0
-balance = 50
+money = 50
 lemonade = 0
 sugar = 0
 price_lemons = 15
@@ -44,3 +44,4 @@ async def main():
     await dp.start_polling(bot)
 
 asyncio.run(main())          
+
