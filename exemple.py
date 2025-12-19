@@ -1,9 +1,1 @@
-print('''рукгцщсndbeiypwmbu8vym9530v35yu34vyuohj7ove8n5yv5nu9nyvu898nv6bunube5yuv4нсе6ст3етс8н743есщггч9834еч78н89сон79тсетн9сн87е68ек7у583е989ртст84е23
-с2е5е3мн7рр8676е87е7
-jo9o4ju98vcgte
-зошнрш65шг09о5ш9зш59шз9шьзин8г0ь98648гг8puryth,pj89c8uchrpv8m0bim6pry9vcip0vi69u58ub5v96p5,cyiv506oihuiv
-eouyvoetry8v0u83jbobyubju8we9h8ht98gujwhup9jy799y78y6565ше7екешенцсетутн7е67ш677т7сен8Е78iwietrib674c8tyc3w485tnt8ttnwce8r67е6ушц67е7836ерм2bouoroatmy8mw58tyv79845yvhт387нен9мй7ертy79ytywc78ythwboyataynte
-sbybntutunyteeudumrn это супер код ,а ещё вы видете шкаф вы его открываете?''')
-x=input()
-if x=='да':
-  print('
+
