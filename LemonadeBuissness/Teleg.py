@@ -8,12 +8,12 @@ dp = Dispatcher()
 
 lemons = 0
 balance = 50
-lemons_juice = 0
+lemonade = 0
 sugar = 0
 price_lemons = 15
-price_lemons_juice = 50
+price_lemonade = 50
 price_sugar = 5
-production_lemons_juice = 5
+production_lemonade = 5
 
 
 
@@ -37,16 +37,24 @@ async def buy_sugar(mes):
     global sugar
     sugar += 100
     await mes.answer('Вы получили 100 грамм сахара. Всего грамм сахара:' + str(sugar))
+
+
+@dp.message(Command("make_lemonade"))
+async def buy_sugar(mes):
+    global lemonade
+    lemonade += 1
+    await mes.answer('Вы сделали 1 бутылку лимонада. Всего бутылок лимонада:' + str(lemonade))
     
     
 
 
 # Run the bot
-async def main() -> None:
+async def main():
     bot = Bot(token=TOKEN)
     await dp.start_polling(bot)
 
 
 asyncio.run(main())
           
+
 
