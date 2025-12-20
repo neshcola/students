@@ -22,21 +22,39 @@ async def command_start_handler(mes):
     
 @dp.message(Command("buy_lemon"))
 async def buy_lemon(mes):
+    global money
     global lemons
-    lemons += 1
-    await mes.answer('Вы получили лимон. Всего лимонов:' + str(lemons))
+    if money>=15:
+        lemons += 1
+        money -= 15
+        await mes.answer('Вы получили лимон. Всего лимонов:' + str(lemons))
+    else:
+        await mes.answer('недостаточно денег.Всего :' + str(lemons) + 'рублей')
+        
 
 @dp.message(Command("buy_sugar"))
 async def buy_sugar(mes):
+    global money
     global sugar
-    sugar += 100
-    await mes.answer('Вы получили 100 грамм сахара. Всего грамм сахара:' + str(sugar))
+    if money>=5:
+        sugar += 100
+        money -= 5
+        await mes.answer('Вы получили 100 грамм сахара. Всего грамм сахара:' + str(sugar))
+    else:
+        await mes.answer('недостаточно денег.Всего :' + str(lemons) + 'рублей')
 
 @dp.message(Command("make_lemonade"))
 async def buy_sugar(mes):
     global lemonade
-    lemonade += 1
-    await mes.answer('Вы сделали 1 бутылку лимонада. Всего бутылок лимонада:' + str(lemonade))
+    global sugar
+    global lemons
+    if lemons>=2 and sugar>=1:
+        lemonade += 1
+        lemons -= 2
+        sugar -= 1
+        await mes.answer('Вы сделали 1 бутылку лимонада. Всего бутылок лимонада:' + str(lemonade))
+    else:
+        await mes.answer('недостаточно денег.Всего :' + str(lemons) + 'рублей')
     
 # Run the bot
 async def main():
@@ -44,5 +62,6 @@ async def main():
     await dp.start_polling(bot)
 
 asyncio.run(main())          
+
 
 
