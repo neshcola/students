@@ -44,7 +44,7 @@ async def buy_sugar(mes):
         await mes.answer('недостаточно денег.Всего :' + str(lemons) + 'рублей')
 
 @dp.message(Command("make_lemonade"))
-async def buy_sugar(mes):
+async def make_lemonade(mes):
     global lemonade
     global sugar
     global lemons
@@ -54,7 +54,7 @@ async def buy_sugar(mes):
         sugar -= 1
         await mes.answer('Вы сделали 1 бутылку лимонада. Всего бутылок лимонада:' + str(lemonade))
     else:
-        await mes.answer('недостаточно денег.Всего :' + str(lemons) + 'рублей')
+        await mes.answer('недостаточно лимонов и сахара.Всего :' + str(lemons) + 'лимонов и' + str(sugar) + 'грамм сахара')
     
 # Run the bot
 async def main():
