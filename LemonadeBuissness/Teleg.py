@@ -48,10 +48,10 @@ async def make_lemonade(mes):
     global lemonade
     global sugar
     global lemons
-    if lemons>=2 and sugar>=1:
+    if lemons>=2 and sugar>=100:
         lemonade += 1
         lemons -= 2
-        sugar -= 1
+        sugar -= 100
         await mes.answer('Вы сделали 1 бутылку лимонада. Всего бутылок лимонада:' + str(lemonade))
     else:
         await mes.answer('недостаточно лимонов и сахара.Всего :' + str(lemons) + 'лимонов и' + str(sugar) + 'грамм сахара')
@@ -62,6 +62,7 @@ async def main():
     await dp.start_polling(bot)
 
 asyncio.run(main())          
+
 
 
 
