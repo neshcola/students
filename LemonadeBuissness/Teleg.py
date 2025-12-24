@@ -29,7 +29,7 @@ async def buy_lemon(mes):
         money -= 15
         await mes.answer('Вы получили лимон. Всего лимонов:' + str(lemons))
     else:
-        await mes.answer('недостаточно денег.Всего :' + str(lemons) + 'рублей')
+        await mes.answer('недостаточно денег.Всего :' + str(money) + 'рублей')
         
 
 @dp.message(Command("buy_sugar"))
@@ -41,7 +41,7 @@ async def buy_sugar(mes):
         money -= 5
         await mes.answer('Вы получили 100 грамм сахара. Всего грамм сахара:' + str(sugar))
     else:
-        await mes.answer('недостаточно денег.Всего :' + str(lemons) + 'рублей')
+        await mes.answer('недостаточно денег.Всего :' + str(money) + 'рублей')
 
 @dp.message(Command("make_lemonade"))
 async def make_lemonade(mes):
@@ -62,6 +62,7 @@ async def main():
     await dp.start_polling(bot)
 
 asyncio.run(main())          
+
 
 
 
