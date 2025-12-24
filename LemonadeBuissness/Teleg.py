@@ -19,7 +19,7 @@ production_lemonade = 5
 # Command handler
 @dp.message(Command("start"))
 async def command_start_handler(mes):
-    await asyncio.mes.answer("Здорово")
+    await mes.answer("Здорово")
     
 @dp.message(Command("buy_lemon"))
 async def buy_lemon(mes):
@@ -28,9 +28,9 @@ async def buy_lemon(mes):
     if money>=15:
         lemons += 1
         money -= 15
-        await asyncio.mes.answer('Вы получили лимон. Всего лимонов:' + str(lemons))
+        await mes.answer('Вы получили лимон. Всего лимонов:' + str(lemons))
     else:
-        await asyncio.mes.answer('недостаточно денег.Всего :' + str(money) + 'рублей')
+        await mes.answer('недостаточно денег.Всего :' + str(money) + 'рублей')
         
 
 @dp.message(Command("buy_sugar"))
@@ -40,9 +40,9 @@ async def buy_sugar(mes):
     if money>=5:
         sugar += 100
         money -= 5
-        await asyncio.mes.answer('Вы получили 100 грамм сахара. Всего грамм сахара:' + str(sugar))
+        await mes.answer('Вы получили 100 грамм сахара. Всего грамм сахара:' + str(sugar))
     else:
-        await asyncio.mes.answer('недостаточно денег.Всего :' + str(money) + 'рублей')
+        await mes.answer('недостаточно денег.Всего :' + str(money) + 'рублей')
 
 @dp.message(Command("make_lemonade"))
 async def make_lemonade(mes):
@@ -53,15 +53,15 @@ async def make_lemonade(mes):
         lemonade += 1
         lemons -= 2
         sugar -= 100
-        await asyncio.mes.answer('Вы сделали 1 бутылку лимонада. Всего бутылок лимонада:' + str(lemonade))
+        await mes.answer('Вы сделали 1 бутылку лимонада. Всего бутылок лимонада:' + str(lemonade))
     else:
-        await asyncio.mes.answer('недостаточно лимонов и сахара.Всего :' + str(lemons) + 'лимонов и' + str(sugar) + 'грамм сахара')
+        await mes.answer('недостаточно лимонов и сахара.Всего :' + str(lemons) + 'лимонов и' + str(sugar) + 'грамм сахара')
 @dp.message(Command("inventory"))
 async def inventory(mes):
     global lemonade
     global sugar
     global lemons
-    await asyncio.mes.answer(str(lemons) + "лимонов" +
+    await mes.answer(str(lemons) + "лимонов" +
                      str(sugar) + 'грамм сахара' +
                      str(lemonade) + 'бутылок лимонада' )
       
@@ -71,6 +71,7 @@ async def main():
     await dp.start_polling(bot)
 
 asyncio.run(main())          
+
 
 
 
