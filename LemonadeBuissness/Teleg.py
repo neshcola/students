@@ -11,7 +11,7 @@ money = 50
 lemonade = 0
 sugar = 0
 price_lemons = 15
-price_lemonade = 50
+price_lemonade = 60
 price_sugar = 5
 production_lemonade = 5
 
@@ -62,6 +62,7 @@ async def main():
     await dp.start_polling(bot)
 
 asyncio.run(main())          
+
 
 
 
