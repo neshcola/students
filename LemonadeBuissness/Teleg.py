@@ -55,7 +55,12 @@ async def make_lemonade(mes):
         await mes.answer('Вы сделали 1 бутылку лимонада. Всего бутылок лимонада:' + str(lemonade))
     else:
         await mes.answer('недостаточно лимонов и сахара.Всего :' + str(lemons) + 'лимонов и' + str(sugar) + 'грамм сахара')
-    
+@dp.message(Command("inventory"))
+async def inventory(mes):
+    await mes.answer(str(lemons) + "лимонов" +
+                     str(sugar) + 'грамм сахара' +
+                     str(money) + 'рублей')
+      
 # Run the bot
 async def main():
     bot = Bot(token=TOKEN)
