@@ -57,9 +57,12 @@ async def make_lemonade(mes):
         await mes.answer('недостаточно лимонов и сахара.Всего :' + str(lemons) + 'лимонов и' + str(sugar) + 'грамм сахара')
 @dp.message(Command("inventory"))
 async def inventory(mes):
+    global lemonade
+    global sugar
+    global lemons
     await mes.answer(str(lemons) + "лимонов" +
                      str(sugar) + 'грамм сахара' +
-                     str(money) + 'рублей')
+                     str(lemonade) + 'бутылок лимонада' )
       
 # Run the bot
 async def main():
@@ -67,6 +70,7 @@ async def main():
     await dp.start_polling(bot)
 
 asyncio.run(main())          
+
 
 
 
