@@ -21,30 +21,6 @@ production_lemonade = 5
 
 # Command handler
 
-    
-@dp.message(Command("buy_lemon"))
-async def buy_lemon(mes):
-    global money
-    global lemons
-    if money>=15:
-        lemons += 1
-        money -= 15
-        await mes.answer('Вы получили лимон. Всего лимонов:' + str(lemons))
-    else:
-        await mes.answer('недостаточно денег. Всего :' + str(money) + 'рублей')
-        
-
-@dp.message(Command("buy_sugar"))
-async def buy_sugar(mes):
-    global money
-    global sugar
-    if money>=5:
-        sugar += 100
-        money -= 5
-        await mes.answer('Вы получили 100 грамм сахара. Всего грамм сахара:' + str(sugar))
-    else:
-        await mes.answer('недостаточно денег. Всего :' + str(money) + 'рублей')
-
 @dp.message(Command("make_lemonade"))
 async def make_lemonade(mes):
     global lemonade
@@ -75,7 +51,7 @@ async def command_start_handler(mes):
     if x in users.keys():
         await mes.answer("Привет! покупай ингредиенты, делай лимонад и зарабатывай!")
     else:
-        users[x] = {'Деньги':50,'Лимоны':0} 
+        users[x] = {'Деньги':50,'Лимоны':0,'Сахар':0,'Лимонад':0} 
         await mes.answer('Пользователь создан')
 
 
@@ -90,6 +66,17 @@ async def buy_lemon(mes):
     else:
         await mes.answer(f'Недостаточно денег. Всего денег: {users[x]['Деньги']}')
 
+@dp.message(Command("buy_sugar"))
+async def buy_sugar(mes):
+    global users
+    if users[x]['Деньги']>=5:
+        users[x]['Сахар'] += 100
+        users[x]['Деньги'] -= 5
+        await mes.answer('Вы получили 100 грамм сахара. Всего грамм сахара:' + str(sugar))
+    else:
+        await mes.answer('недостаточно денег. Всего :' + str(money) + 'рублей')
+
+
 
 # Run the bot
 async def main():
@@ -97,4 +84,5 @@ async def main():
     await dp.start_polling(bot)
 
 asyncio.run(main())          
+
 
