@@ -75,12 +75,12 @@ async def command_start_handler(mes):
     if x in users.keys():
         await mes.answer("Привет! покупай ингредиенты, делай лимонад и зарабатывай!")
     else:
-        users[x] = {'Деньги':50,'Лимоны':5} 
+        users[x] = {'Деньги':50,'Лимоны':0} 
         await mes.answer('Пользователь создан')
 
 
-@dp.message(Command("add_lemon"))
-async def add_lemoons(mes):
+@dp.message(Command("buy_lemon"))
+async def buy_lemon(mes):
     global users
     x = mes.chat.id
     if users[x]['Деньги'] >= 10:
@@ -97,3 +97,4 @@ async def main():
     await dp.start_polling(bot)
 
 asyncio.run(main())          
+
