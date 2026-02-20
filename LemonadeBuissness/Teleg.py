@@ -54,7 +54,7 @@ async def make_lemonade(mes):
         users[x]['Лимонад'] += 1
         users[x]['Лимоны'] -= 2
         users[x]['Сахар'] -= 100
-        await mes.answer('Вы сделали 1 бутылку лимонада. Всего бутылок лимонада:' + str(lemonade))
+        await mes.answer(f'Вы сделали 1 бутылку лимонада.\n Всего бутылок лимонада:{users[x]['Лимонад']}\nОсталось:{users[x]['Лимоны']} лимонов и {users[x]['Сахар']} грамм сахара')
     else:
         await mes.answer('недостаточно лимонов и сахара. Всего :' + str(lemons) + 'лимонов и' + str(sugar) + 'грамм сахара')
 
@@ -66,6 +66,7 @@ async def main():
     await dp.start_polling(bot)
 
 asyncio.run(main())          
+
 
 
 
