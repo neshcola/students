@@ -20,19 +20,6 @@ price_sugar = 5
 production_lemonade = 5
 
 # Command handler
-
-@dp.message(Command("make_lemonade"))
-async def make_lemonade(mes):
-    global lemonade
-    global sugar
-    global lemons
-    if lemons>=2 and sugar>=100:
-        lemonade += 1
-        lemons -= 2
-        sugar -= 100
-        await mes.answer('Вы сделали 1 бутылку лимонада. Всего бутылок лимонада:' + str(lemonade))
-    else:
-        await mes.answer('недостаточно лимонов и сахара. Всего :' + str(lemons) + 'лимонов и' + str(sugar) + 'грамм сахара')
 @dp.message(Command("inventory"))
 async def inventory(mes):
     global lemonade, sugar, lemons
@@ -72,9 +59,21 @@ async def buy_sugar(mes):
     if users[x]['Деньги']>=5:
         users[x]['Сахар'] += 100
         users[x]['Деньги'] -= 5
-        await mes.answer('Вы получили 100 грамм сахара. Всего грамм сахара:' + str(sugar))
+        await mes.answer(f'Вы получили 100 грамм сахара.\n Всего грамм сахара:{users[x]['Сахар']}')
     else:
-        await mes.answer('недостаточно денег. Всего :' + str(money) + 'рублей')
+        await mes.answer(f'недостаточно денег.\n Всего :{users[x]['Деньги']}рублей')
+
+
+@dp.message(Command("make_lemonade"))
+async def make_lemonade(mes):
+    global users
+    if users[x]['Лимоны']>=2 and users[x]['Сахар']>=100:
+        users[x]['Лимонад'] += 1
+        users[x]['Лимоны'] -= 2
+        users[x]['Сахар'] -= 100
+        await mes.answer('Вы сделали 1 бутылку лимонада. Всего бутылок лимонада:' + str(lemonade))
+    else:
+        await mes.answer('недостаточно лимонов и сахара. Всего :' + str(lemons) + 'лимонов и' + str(sugar) + 'грамм сахара')
 
 
 
@@ -84,5 +83,6 @@ async def main():
     await dp.start_polling(bot)
 
 asyncio.run(main())          
+
 
 
