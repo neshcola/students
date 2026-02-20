@@ -7,28 +7,11 @@ TOKEN = "8516795655:AAHfSA9wS3pf4GcOAFxD052HCBMZKrtdIBE"
 
 dp = Dispatcher()
 
-
-
-
-lemons = 0
-money = 50
-lemonade = 0
-sugar = 0
-price_lemons = 15
-price_lemonade = 60
-price_sugar = 5
-production_lemonade = 5
-
 # Command handler
 @dp.message(Command("inventory"))
 async def inventory(mes):
-    global lemonade, sugar, lemons
+    global users
     await mes.answer(f'{lemons} лимонов.\n{sugar} грамм сахара.\n{lemonade} бутылок лимонада.\n{money} денег')
-
-
-
-
-
 users = {}
 
 @dp.message(Command("start"))
@@ -83,6 +66,7 @@ async def main():
     await dp.start_polling(bot)
 
 asyncio.run(main())          
+
 
 
 
